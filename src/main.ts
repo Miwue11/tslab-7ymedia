@@ -6,7 +6,8 @@ const muestraPuntuacion=():void=> {
     const scoreDiv = document.getElementById("puntuacion");
     if (scoreDiv) {
     scoreDiv.innerText = `Puntuación: ${puntuacion}`;
-    }
+    } else{
+    console.error("no se encuentra puntuacion")}
 }
 
 
@@ -58,24 +59,40 @@ const  mostrarCarta=(carta: number):void=> {
     const img = document.getElementById("imagen");
     if (img instanceof HTMLImageElement) {
     img.src = url;
-    }
-    console.log("Carta obtenida: " + carta);
+    }else{
+        console.error("no se encuentra url")
+    };
+
 }
 
 const deshabilitarBotones=():void=> {
     const botonPedir = document.getElementById("btnPedir");
     if (botonPedir instanceof HTMLButtonElement) {
     botonPedir.disabled = true;
+    }else{
+    console.error("no se encuentra botonPedir")
     }
     const botonPlantar = document.getElementById("btnPlantar");
     if (botonPlantar instanceof HTMLButtonElement) {
     botonPlantar.disabled = true;
+    }else{
+    console.error("no se encuentra botonPlantar")
     }
 }
 
 const habilitarBotones=():void=> {
-    (document.getElementById("btnPedir") as HTMLButtonElement).disabled = false;
-    (document.getElementById("btnPlantar") as HTMLButtonElement).disabled = false;
+    const botonPedir = document.getElementById("btnPedir");
+    if (botonPedir instanceof HTMLButtonElement) {
+    botonPedir.disabled = false;
+    }else{
+    console.error("no se encuentra botonPedir")
+    }
+    const botonPlantar = document.getElementById("btnPlantar");
+    if (botonPlantar instanceof HTMLButtonElement) {
+    botonPlantar.disabled = false;
+    }else{
+    console.error("no se encuentra botonPlantar")
+    }
 }
 
 const nuevaPartida=():void=> {
@@ -86,11 +103,33 @@ const nuevaPartida=():void=> {
     const img = document.getElementById("imagen") as HTMLImageElement;
     if (img) {
     img.src = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
+    }else{
+    console.error("no se encuentra imagen")
     }
-    (document.getElementById("resultadoOpcional") as HTMLDivElement).innerText = "";
-    (document.getElementById("mensaje") as HTMLDivElement).innerText = "";
-    (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "none";
-    (document.getElementById("opcional") as HTMLDivElement).style.display = "none";
+    const resultadoOpcional = document.getElementById("resultadoOpcional");
+    if (resultadoOpcional instanceof HTMLDivElement) {
+    resultadoOpcional.innerText = "";
+    }else{
+        console.error("no se encuentra resultadoOpcional")
+    }
+    const mensaje = document.getElementById("mensaje");
+    if (mensaje instanceof HTMLDivElement) {
+    mensaje.innerText = "";
+    }else{
+        console.error("no se encuentra mensaje")
+    }
+    const btnNueva = document.getElementById("btnNueva");
+    if (btnNueva instanceof HTMLButtonElement) {
+    btnNueva.style.display = "none"}
+    else{
+        console.error("no se encuentra btnNueva")
+    }
+    const opcional = document.getElementById("opcional");
+    if (opcional instanceof HTMLDivElement) {
+    opcional.style.display = "none";
+    }else{
+        console.error("no se encuentra opcional")
+    }
 }
 
 const pedirCarta=():void=> {
@@ -115,7 +154,8 @@ const pedirCarta=():void=> {
     (document.getElementById("mensaje") as HTMLDivElement).innerText = "¡Enhorabuena! ¡Has conseguido 7.5!";
     gameOver = true;
     deshabilitarBotones();
-    (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "inline-block";}
+    (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "inline-block";
+    }
 }
 
 
@@ -124,7 +164,6 @@ const plantar=():void => {
     deshabilitarBotones();
     gameOver = true;
     let mensaje: string = "";
-
     if (puntuacion < 4) {
         mensaje = "Has sido muy conservador";
     } else if (puntuacion >=4 && puntuacion < 6.5) {
@@ -138,11 +177,24 @@ const plantar=():void => {
     } else {
         mensaje = `Puntuación final: ${puntuacion}`;
     }
-
-    (document.getElementById("mensaje") as HTMLDivElement).innerText = mensaje;
-    (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "inline-block";
-
-    (document.getElementById("opcional") as HTMLDivElement).style.display = "block";
+    const mensajeDiv = document.getElementById("mensaje");
+    if (mensajeDiv instanceof HTMLDivElement) {
+        mensajeDiv.innerText = mensaje;
+    }else{
+        console.error("no se encuentra mensajeDiv")
+    }
+    const btnNueva = document.getElementById("btnNueva");
+    if (btnNueva instanceof HTMLButtonElement) {
+        btnNueva.style.display = "inline-block";
+    }else{
+        console.error("no se encuentra btnNueva")
+    }
+    const opcional = document.getElementById("opcional");
+    if (opcional instanceof HTMLDivElement) {
+        opcional.style.display = "block";
+    }else{
+        console.error("no se encuentra opcional")
+    }
 }
 
 const verQueHubieraPasado=():void=> {
@@ -160,8 +212,12 @@ const verQueHubieraPasado=():void=> {
     if (puntuacionSimulada > 7.5) 
         break;
     };
-    (document.getElementById("resultadoOpcional") as HTMLDivElement).innerText =
-    `Si hubieras seguido, habrías obtenido: ${puntuacionSimulada.toFixed(1)} puntos con las siguientes cartas: ${cartasSimuladas.join(", ")}`;
+    const resultadoOpcional = document.getElementById("resultadoOpcional");
+    if (resultadoOpcional instanceof HTMLDivElement) {
+    resultadoOpcional.innerText = `Si hubieras seguido, habrías obtenido: ${puntuacionSimulada.toFixed(1)} puntos con las siguientes cartas: ${cartasSimuladas.join(", ")}`;}
+    else{
+        console.error("no se encuentra resultadoOpcional")
+            }
     if (puntuacionSimulada === 7.5) {
     (document.getElementById("resultadoOpcional") as HTMLDivElement).innerText += ". ¡Que pena!, habrias clavado la puntuación.";
     }
@@ -173,20 +229,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnPedir = document.getElementById("btnPedir");
     if (btnPedir instanceof HTMLButtonElement) {
         btnPedir.addEventListener("click", pedirCarta);
+    } else{
+        console.error("no se encuentran btnPedir")
     }
 
     const btnPlantar = document.getElementById("btnPlantar");
     if (btnPlantar instanceof HTMLButtonElement) {
         btnPlantar.addEventListener("click", plantar);
+    } else{
+        console.error("no se encuentran btnPlantar")
     }
 
     const btnNueva = document.getElementById("btnNueva");
     if (btnNueva instanceof HTMLButtonElement) {
         btnNueva.addEventListener("click", nuevaPartida);
+    } else{
+        console.error("no se encuentran btnNueva")
     }
 
-    const btnVerQueHubieraPasado = document.getElementById("btnVerQueHubieraPasado");
-    if (btnVerQueHubieraPasado instanceof HTMLButtonElement) {
-        btnVerQueHubieraPasado.addEventListener("click", verQueHubieraPasado);
+    const btnQueHubieraPasado = document.getElementById("btnVerQueHubieraPasado");
+    if (btnQueHubieraPasado instanceof HTMLButtonElement) {
+        btnQueHubieraPasado.addEventListener("click", verQueHubieraPasado);
+    } else{
+        console.error("no se encuentran btnQueHubieraPasado")
     }
+
 });
