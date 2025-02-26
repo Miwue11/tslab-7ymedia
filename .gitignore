@@ -7,6 +7,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+apuntes
+base.ts
+clinica.ts
+func-basicas.js
+func-saludar.js
+funcion_receta.js
+imagenes.js
+imagenes.ts
+receta.ts
+sumar.ts
+sumar.js
+
 node_modules
 dist
 dist-ssr
