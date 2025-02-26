@@ -167,10 +167,10 @@ const plantar=():void => {
     if (puntuacion < 4) {
         mensaje = "Has sido muy conservador";
     } else if (puntuacion >=4 && puntuacion < 6.5) {
-        mensaje = "Te has cagao encima...";
+        mensaje = "Te ha entrado el canguelo eh?";
     } else if (puntuacion >= 6.5 && puntuacion < 7) {
         mensaje = "Casi casi...";
-    } else if(puntuacion===7){
+    } else if(puntuacion===7){//he reacondicionado los condicionales para que se ajusten a los valores de puntuación y asi no se queden numeros sin mensaje, ademas he añadido uno para cuando te quedas rozando el 7.5
         mensaje="no hombre... lo tenias ya hecho y te has acobardado."
     } else if (puntuacion === 7.5) {
         mensaje = "¡Lo has clavado! ¡Enhorabuena!";
