@@ -2,168 +2,205 @@
 let puntuacion: number = 0;
 let gameOver: boolean = false;
 
-const muestraPuntuacion=():void=> {
-    const scoreDiv = document.getElementById("puntuacion");
-        if (scoreDiv) {
-        scoreDiv.innerText = `Puntuación: ${puntuacion}`;
+    const puntos =()=> {
+        const puntos =
+        document.getElementById("puntuacion");
+        if (puntos instanceof HTMLDivElement) {
+        puntos.innerText = `Puntuación: ${puntuacion}`;
         } else{
         console.error("no se encuentra puntuacion")
         }
-}
-
-
-const dameCarta=():number=> {
-    const randomNum: number = Math.floor(Math.random() * 10) + 1;
-        if (randomNum > 7) {
-        return randomNum + 2;
-        }
-        return randomNum;
-}
-
-const  mostrarCarta=(carta: number):void=> {
-    let url: string;
-        switch (carta) {
-        case 1:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg";
-            break;
-        case 2:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/2_dos-copas.jpg";
-            break;
-        case 3:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/3_tres-copas.jpg";
-            break;
-        case 4:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/4_cuatro-copas.jpg";
-            break;
-        case 5:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/5_cinco-copas.jpg";
-            break;
-        case 6:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/6_seis-copas.jpg";
-            break;
-        case 7:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/7_siete-copas.jpg";
-            break;
-        case 10:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/10_sota-copas.jpg";
-            break;
-        case 11:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/11_caballo-copas.jpg";
-            break;
-        case 12:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/12_rey-copas.jpg";
-            break;
-        default:
-            url = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
-            break;
-        }
-    const img = document.getElementById("imagen");
-        if (img instanceof HTMLImageElement) {
-        img.src = url;
-        }else{
-            console.error("no se encuentra url")
-        };
-
-}
-
-const deshabilitarBotones=():void=> {
-    const botonPedir = document.getElementById("btnPedir");
-        if (botonPedir instanceof HTMLButtonElement) {
-        botonPedir.disabled = true;
-        }else{
-        console.error("no se encuentra botonPedir")
-        }
-    const botonPlantar = document.getElementById("btnPlantar");
-        if (botonPlantar instanceof HTMLButtonElement) {
-        botonPlantar.disabled = true;
-        }else{
-        console.error("no se encuentra botonPlantar")
-        }
-}
-
-const habilitarBotones=():void=> {
-    const botonPedir = document.getElementById("btnPedir");
-        if (botonPedir instanceof HTMLButtonElement) {
-        botonPedir.disabled = false;
-        }else{
-        console.error("no se encuentra botonPedir")
-        }
-    const botonPlantar = document.getElementById("btnPlantar");
-        if (botonPlantar instanceof HTMLButtonElement) {
-        botonPlantar.disabled = false;
-        }else{
-        console.error("no se encuentra botonPlantar")
-        }
-}
-
-const nuevaPartida=():void=> {
-    puntuacion = 0;
-    gameOver = false;
-    muestraPuntuacion();
-    habilitarBotones();
-    const img = document.getElementById("imagen") as HTMLImageElement;
-        if (img) {
-        img.src = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
-        }else{
-        console.error("no se encuentra imagen")
-        }
-    const resultadoOpcional = document.getElementById("resultadoOpcional");
-        if (resultadoOpcional instanceof HTMLDivElement) {
-        resultadoOpcional.innerText = "";
-        }else{
-            console.error("no se encuentra resultadoOpcional")
-        }
-    const mensaje = document.getElementById("mensaje");
-        if (mensaje instanceof HTMLDivElement) {
-        mensaje.innerText = "";
-        }else{
-            console.error("no se encuentra mensaje")
-        }
-    const btnNueva = document.getElementById("btnNueva");
-        if (btnNueva instanceof HTMLButtonElement) {
-        btnNueva.style.display = "none"}
-        else{
-            console.error("no se encuentra btnNueva")
-        }
-    const opcional = document.getElementById("opcional");
-        if (opcional instanceof HTMLDivElement) {
-        opcional.style.display = "none";
-        }else{
-            console.error("no se encuentra opcional")
-        }
-}
-
-const pedirCarta=():void=> {
-    if (gameOver) return;
-    const carta = dameCarta();
-    mostrarCarta(carta);
-
-        if (carta === 10 || carta === 11 || carta === 12) {
-        puntuacion += 0.5;
-        } else {
-        puntuacion += carta;
-        }
-        muestraPuntuacion();
-
-        if (puntuacion > 7.5) {
-        (document.getElementById("mensaje") as HTMLDivElement).innerText = "Game Over";
-        gameOver = true;
-        deshabilitarBotones();
-        (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "inline-block";
-        }
-        if (puntuacion === 7.5) {
-        (document.getElementById("mensaje") as HTMLDivElement).innerText = "¡Enhorabuena! ¡Has conseguido 7.5!";
-        gameOver = true;
-        deshabilitarBotones();
-        (document.getElementById("btnNueva") as HTMLButtonElement).style.display = "inline-block";
     }
-}
 
+    const muestraPuntuacion=():void=> {
+        return puntos();
+    }
 
-const plantar=():void => {
-    if (gameOver) return;
-    deshabilitarBotones();
-    gameOver = true;
+    const numeroAleatorio = (): number => Math.floor(Math.random() * 10) + 1;
+
+    const calcularCarta = (numero: number):number =>{
+        if (numero > 7) {
+            return numero +2; 
+        }
+        return numero;
+    }
+    const dameCarta = (): number => calcularCarta(numeroAleatorio());
+
+    const dameUrlCarta = (carta: number): string => {
+        switch (carta) {
+            case 1:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/1_as-copas.jpg";
+                break;
+            case 2:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/2_dos-copas.jpg";
+                break;
+            case 3:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/3_tres-copas.jpg";
+                break;
+            case 4:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/4_cuatro-copas.jpg";
+                break;
+            case 5:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/5_cinco-copas.jpg";
+                break;
+            case 6:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/6_seis-copas.jpg";
+                break;
+            case 7:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/7_siete-copas.jpg";
+                break;
+            case 10:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/10_sota-copas.jpg";
+                break;
+            case 11:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/11_caballo-copas.jpg";
+                break;
+            case 12:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/copas/12_rey-copas.jpg";
+                break;
+                default:
+                return "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
+        }
+    };
+
+    const mostrarCarta = (carta: string): void => {
+        const img = document.getElementById("imagen");
+        if (img instanceof HTMLImageElement) {
+            img.src = carta;
+        } else {
+            console.error("no se encuentra url");
+        }
+    };
+
+    const ponerBotonPedir=()=> {
+        const ponerBotonPedir =
+        document.getElementById("btnPedir");
+            if (ponerBotonPedir instanceof HTMLButtonElement) {
+                ponerBotonPedir.disabled = false;
+            }else{
+            console.error("no se encuentra botonPedir")
+            }
+    }
+    const ponerBotonPlantar=()=> {
+        const ponerBotonPlantar =
+        document.getElementById("btnPlantar");
+            if (ponerBotonPlantar instanceof HTMLButtonElement) {
+                ponerBotonPlantar.disabled = false;
+            }else{
+            console.error("no se encuentra botonPlantar")
+            }
+    }
+
+    const quitarBotonPedir=()=> {
+        const quitarBotonPedir =
+        document.getElementById("btnPedir");
+            if (quitarBotonPedir instanceof HTMLButtonElement) {
+                quitarBotonPedir.disabled = true;
+            }else{
+            console.error("no se encuentra botonPedir")
+            }
+    }
+    const quitarBotonPlantar=()=> {
+        const quitarBotonPlantar =
+        document.getElementById("btnPlantar");
+            if (quitarBotonPlantar instanceof HTMLButtonElement) {
+                quitarBotonPlantar.disabled = true;
+            }else{
+            console.error("no se encuentra botonPlantar")
+            }
+    }
+
+    const deshabilitarBotones=():void=> {
+        quitarBotonPedir();
+        quitarBotonPlantar();
+    }
+
+    const habilitarBotones=():void=> {
+        ponerBotonPedir();
+        ponerBotonPlantar();  
+    }
+
+    const imagenInicial=()=> {
+        const img = document.getElementById("imagen") as HTMLImageElement;
+            if (img) {
+            img.src = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
+            }else{
+            console.error("no se encuentra imagen")
+            }
+    }
+
+    const resultadoOpcional=()=>{ 
+        const resultado= document.getElementById("resultadoOpcional");
+            if (resultado instanceof HTMLDivElement) {
+            resultado.innerText = "";
+            }else{
+                console.error("no se encuentra resultadoOpcional")
+            }
+    }
+
+    const mensaje =()=> {
+        const mensaje= document.getElementById("mensaje");
+            if (mensaje instanceof HTMLDivElement) {
+            mensaje.innerText = "";
+            }else{
+                console.error("no se encuentra mensaje")
+            }
+    }
+
+    const nuevaPartida=():void=> {
+        puntuacion = 0;
+        gameOver = false;
+        muestraPuntuacion();
+        habilitarBotones();
+        imagenInicial();
+        resultadoOpcional();
+        mensaje();
+        ocultarBtnNueva(); 
+        opcional();
+        ocultarQueHubieraPasado();
+    }
+
+    const pedirCarta=():void=> {
+        if (gameOver) return;
+        const carta = dameCarta();
+        const urlCarta = dameUrlCarta(carta);
+        mostrarCarta(urlCarta);
+        actualizarPuntos(carta);
+        muestraPuntuacion();
+    }
+
+    const perder=()=>{
+        ocultarQueHubieraPasado();
+        deshabilitarBotones();
+        gameOver = true;
+        muestraPuntuacion();
+        const mensaje = dameMensaje(puntuacion);
+        mensajeDiv(mensaje);
+        btnNueva();
+        opcional();
+    }
+
+    const actualizarPuntos=(carta: number):void=> {
+        if (carta === 10 || carta === 11 || carta === 12) {
+            puntuacion += 0.5;
+        } else {
+            puntuacion += carta;
+        }
+        if (puntuacion >= 7.5) {
+            perder()
+        }
+    }
+
+    const ocultarQueHubieraPasado=()=> {
+        const btn= document.getElementById("btnVerQueHubieraPasado");
+            if (btn instanceof HTMLButtonElement) {
+                btn.style.display = "none";
+            }else{
+                console.error("no se encuentra btnVerQueHubieraPasado")
+            }
+    }
+
+    const dameMensaje=(puntuacion:number):string=> {
     let mensaje: string = "";
         if (puntuacion < 4) {
             mensaje = "Has sido muy conservador";
@@ -176,83 +213,123 @@ const plantar=():void => {
         } else if (puntuacion === 7.5) {
             mensaje = "¡Lo has clavado! ¡Enhorabuena!";
         } else {
-            mensaje = `Puntuación final: ${puntuacion}`;
+            mensaje = ` Oh.. te has pasado de puntos, perdiste. Esta es tu puntuación final: ${puntuacion}`;
         }
-    const mensajeDiv = document.getElementById("mensaje");
-        if (mensajeDiv instanceof HTMLDivElement) {
-            mensajeDiv.innerText = mensaje;
-        }else{
-            console.error("no se encuentra mensajeDiv")
+        return mensaje;
     }
-    const btnNueva = document.getElementById("btnNueva");
-        if (btnNueva instanceof HTMLButtonElement) {
-            btnNueva.style.display = "inline-block";
-        }else{
-            console.error("no se encuentra btnNueva")
-        }
-    const opcional = document.getElementById("opcional");
-        if (opcional instanceof HTMLDivElement) {
-            opcional.style.display = "block";
-        }else{
-            console.error("no se encuentra opcional")
-        }
-}
 
-const verQueHubieraPasado=():void=> {
-    let puntuacionSimulada = puntuacion;
-    let cartasSimuladas: number[] = [];
+    const mensajeDiv =(mensaje:string):void=> {
+        const msj= document.getElementById("mensaje");
+            if (msj instanceof HTMLDivElement) {
+                msj.innerText = mensaje;
+            }else{
+                console.error("no se encuentra mensajeDiv")
+            }
+    }
 
-    while (puntuacionSimulada < 7.5) {
-    const carta = dameCarta();
-    cartasSimuladas.push(carta);
+    const ocultarBtnNueva=()=> {
+        const btn= document.getElementById("btnNueva");
+            if (btn instanceof HTMLButtonElement) {
+                btn.style.display = "none";
+            }else{
+                console.error("no se encuentra btnNueva")
+            }
+    }
+
+    const queHubieraPasado=()=> {
+        const btn= document.getElementById("btnVerQueHubieraPasado");
+            if (btn instanceof HTMLButtonElement) {
+                btn.style.display = "inline-block";
+            }else{
+                console.error("no se encuentra btnVerQueHubieraPasado")
+            }
+    }
+
+    const btnNueva=()=> {
+        const btn= document.getElementById("btnNueva");
+            if (btn instanceof HTMLButtonElement) {
+                btn.style.display = "inline-block";
+            }else{
+                console.error("no se encuentra btnNueva")
+            }
+    }
+
+    const opcional =()=>{ 
+        const opcion= document.getElementById("opcional");
+            if (opcion instanceof HTMLDivElement) {
+                opcion.style.display = "block";
+            }else{
+                console.error("no se encuentra opcional")
+            }
+    }
+
+    const plantar=():void => {
+        if (gameOver) return;
+        deshabilitarBotones();
+        gameOver = true;
+        muestraPuntuacion();
+        const mensaje:string = dameMensaje(puntuacion);
+        mensajeDiv(mensaje);   
+        btnNueva();
+        opcional();
+        queHubieraPasado();
+
+    }
+
+    const actualizarPuntuacionSimulada = (puntuacion: number, carta: number): number => {
         if (carta === 10 || carta === 11 || carta === 12) {
-            puntuacionSimulada += 0.5;
+            return puntuacion + 0.5;
+        }
+            return puntuacion + carta;
+    };
+
+    const mostrarResultadoOpcional = (puntuacion: number, cartas: number[]): void => {
+        const resultadoOpcional = document.getElementById("resultadoOpcional");
+            if (resultadoOpcional instanceof HTMLDivElement) {
+            let mensaje = `Si hubieras seguido, habrías obtenido: ${puntuacion.toFixed(1)} puntos con las siguientes cartas: ${cartas.join(", ")}`;
+            if (puntuacion === 7.5) {
+                mensaje += ". ¡Que pena!, habrías clavado la puntuación.";
+            }
+            resultadoOpcional.innerText = mensaje;
+            } else {
+            console.error("No se encuentra el elemento resultadoOpcional");
+            }
+    };
+
+    const verQueHubieraPasado = (): void => {
+        const { puntuacionFinal, cartasSimuladas } = simularJuego(puntuacion);
+        mostrarResultadoOpcional(puntuacionFinal, cartasSimuladas);
+    };
+
+    const simularJuego = (puntuacionInicial: number): {
+        puntuacionFinal: number, cartasSimuladas: number[] } => {
+        let puntuacionSimulada = puntuacionInicial;
+        let cartasSimuladas: number[] = [];
+            while (puntuacionSimulada < 7.5) {
+                const carta = dameCarta();
+                cartasSimuladas.push(carta);
+                puntuacionSimulada = actualizarPuntuacionSimulada(puntuacionSimulada, carta);
+                if (puntuacionSimulada > 7.5) break;
+            }
+            return { puntuacionFinal: puntuacionSimulada, cartasSimuladas };
+    };
+
+    const inicializarEventos = (): void => {
+        asignarEvento("btnNueva", "click", nuevaPartida);
+        asignarEvento("btnPideCarta", "click", pedirCarta);
+        asignarEvento("btnMePlanto", "click", plantar);
+        asignarEvento("btnVerQueHubieraPasado", "click", verQueHubieraPasado);
+    };
+
+    const asignarEvento = (id: string, evento: string, handler: EventListener): void => {
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            elemento.addEventListener(evento, handler);
         } else {
-            puntuacionSimulada += carta;
+            console.error(`No se encontró el elemento con id ${id}`);
         }
-        if (puntuacionSimulada > 7.5) 
-            break;
-        };
-    const resultadoOpcional = document.getElementById("resultadoOpcional");
-        if (resultadoOpcional instanceof HTMLDivElement) {
-        resultadoOpcional.innerText = `Si hubieras seguido, habrías obtenido: ${puntuacionSimulada.toFixed(1)} puntos con las siguientes cartas: ${cartasSimuladas.join(", ")}`;}
-        else{
-            console.error("no se encuentra resultadoOpcional")
-                }
-        if (puntuacionSimulada === 7.5) {
-        (document.getElementById("resultadoOpcional") as HTMLDivElement).innerText += ". ¡Que pena!, habrias clavado la puntuación.";
-        }
-}
+    };
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    muestraPuntuacion();
-    const btnPedir = document.getElementById("btnPedir");
-        if (btnPedir instanceof HTMLButtonElement) {
-            btnPedir.addEventListener("click", pedirCarta);
-        } else{
-            console.error("no se encuentran btnPedir")
-        }
-
-    const btnPlantar = document.getElementById("btnPlantar");
-        if (btnPlantar instanceof HTMLButtonElement) {
-            btnPlantar.addEventListener("click", plantar);
-        } else{
-            console.error("no se encuentran btnPlantar")
-        }
-
-    const btnNueva = document.getElementById("btnNueva");
-        if (btnNueva instanceof HTMLButtonElement) {
-            btnNueva.addEventListener("click", nuevaPartida);
-        } else{
-            console.error("no se encuentran btnNueva")
-        }
-
-    const btnQueHubieraPasado = document.getElementById("btnVerQueHubieraPasado");
-        if (btnQueHubieraPasado instanceof HTMLButtonElement) {
-            btnQueHubieraPasado.addEventListener("click", verQueHubieraPasado);
-        } else{
-            console.error("no se encuentran btnQueHubieraPasado")
-        }
-
-});
+    document.addEventListener("DOMContentLoaded", () => {
+        inicializarEventos();
+    });
