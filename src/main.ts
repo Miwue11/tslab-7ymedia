@@ -319,8 +319,8 @@ let gameOver: boolean = false;
 
     const inicializarEventos = (): void => {
         asignarEvento("btnNueva", "click", nuevaPartida);
-        asignarEvento("btnPideCarta", "click", pedirCarta);
-        asignarEvento("btnMePlanto", "click", plantar);
+        asignarEvento("btnPedir", "click", pedirCarta);
+        asignarEvento("btnPlantar", "click", plantar);
         asignarEvento("btnVerQueHubieraPasado", "click", verQueHubieraPasado);
     };
 
