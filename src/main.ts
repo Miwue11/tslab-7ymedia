@@ -24,6 +24,7 @@ let gameOver: boolean = false;
         }
         return numero;
     }
+
     const dameCarta = (): number => calcularCarta(numeroAleatorio());
 
     const dameUrlCarta = (carta: number): string => {
@@ -81,6 +82,7 @@ let gameOver: boolean = false;
             console.error("no se encuentra botonPedir")
             }
     }
+
     const ponerBotonPlantar=()=> {
         const ponerBotonPlantar =
         document.getElementById("btnPlantar");
@@ -100,6 +102,7 @@ let gameOver: boolean = false;
             console.error("no se encuentra botonPedir")
             }
     }
+
     const quitarBotonPlantar=()=> {
         const quitarBotonPlantar =
         document.getElementById("btnPlantar");
