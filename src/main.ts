@@ -183,14 +183,30 @@ let gameOver: boolean = false;
         opcional();
     }
 
+
+    const ganar=()=>{
+        ocultarQueHubieraPasado();
+        deshabilitarBotones();
+        gameOver = true;
+        muestraPuntuacion();
+        mensajeDiv("¡Enhorabuena! Has ganado");
+        btnNueva();
+        opcional();
+    }
+    
     const actualizarPuntos=(carta: number):void=> {
         if (carta === 10 || carta === 11 || carta === 12) {
             puntuacion += 0.5;
         } else {
             puntuacion += carta;
-        }
-        if (puntuacion >= 7.5) {
-            perder()
+        }ganarOrPerder();
+    }
+
+    const ganarOrPerder=():void=> {
+        if (puntuacion > 7.5) {
+            perder();
+        } else if (puntuacion === 7.5) {
+            ganar();
         }
     }
 
