@@ -63,14 +63,6 @@ export const resultadoOpcional=()=>{
         }
 }
 
-export const mensaje =()=> {
-    const mensaje= document.getElementById("mensaje");
-        if (mensaje instanceof HTMLDivElement&&mensaje!==null) {
-        mensaje.innerText = "";
-        }else{
-            console.error("no se encuentra mensaje")
-        }
-}
 
 export const ocultarQueHubieraPasado=()=> {
     const btn= document.getElementById("btnVerQueHubieraPasado");

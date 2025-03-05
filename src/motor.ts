@@ -1,5 +1,4 @@
 import { puntos,
-    mensaje,
     resultadoOpcional,
     ocultarQueHubieraPasado,
     mensajeDiv,
@@ -34,7 +33,7 @@ export const nuevaPartida = (): void => {
     habilitarBotones();
     mostrarCarta(0);
     resultadoOpcional();
-    mensaje();
+    mensajeDiv("");
     ocultarBtnNueva();
     opcional();
     ocultarQueHubieraPasado();
@@ -52,7 +51,6 @@ export const pedirCarta=():void=> {
 export const perder=()=>{
     ocultarQueHubieraPasado();
     deshabilitarBotones();
-    partida.gameOver = true;
     puntos();
     const mensaje = dameMensaje(partida.puntuacion);
     mensajeDiv(mensaje);
@@ -64,9 +62,9 @@ export const perder=()=>{
 export const ganar=()=>{
     ocultarQueHubieraPasado();
     deshabilitarBotones();
-    partida.gameOver = true;
     puntos();
-    mensajeDiv("¡Enhorabuena! Has ganado");
+    const mensaje = dameMensaje(partida.puntuacion);
+    mensajeDiv(mensaje);
     btnNueva();
     opcional();
     dameUrlCarta(0);
