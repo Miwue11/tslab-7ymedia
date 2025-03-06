@@ -276,40 +276,40 @@ describe("ganarOrPerder", () => {
 
 describe("numeroAleatorio", () => {
     it("debería devolver 12 si Math.random() devuelve 0.9", () => {
-        //  Arrange (escenario)
+        //  Arrange
         const numero = 0.9;
         const numeroEsperado = 12;
         vi.spyOn(global.Math, "random").mockReturnValue(numero);
 
-        //  Act (ejecutamos la funcion)
+        //  Act
         const resultado = calcularCarta(numeroAleatorio());
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
 
     it("debería devolver 1 si Math.random() marca 0", () => {
-        //  Arrange (escenario)
+        //  Arrange
         const numero = 0;
         const numeroEsperado = 1;
         vi.spyOn(global.Math, "random").mockReturnValue(numero);
 
-        //  Act (ejecutamos la funcion)
+        //  Act
         const resultado = calcularCarta(numeroAleatorio());
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
     it("debería devolver 5 si Math.random() devuelve 0.4", () => {
-        //  Arrange (escenario)
+        //  Arrange
         const numero = 0.4;
         const numeroEsperado = 5;
         vi.spyOn(global.Math, "random").mockReturnValue(numero);
 
-        //  Act (ejecutamos la funcion)
+        //  Act
         const resultado = calcularCarta(numeroAleatorio());
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
 });
@@ -317,76 +317,76 @@ describe("numeroAleatorio", () => {
 describe("calcularCarta", () => {
     it("debería devolver 10,11,12 si el número es 8,9,10", () => {
 
-        //  Arrange (escenario)
+        //  Arrange 
         const numero = 9;
         const numeroEsperado = 11;
         
-        //  Act (ejecutamos la funcion)
+        //  Act
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
     it("debería devolver 10,11,12 si el número es 8,9,10", () => {
 
-        //  Arrange (escenario)
+        //  Arrange
         const numero = 8;
         const numeroEsperado = 10;
         
-        //  Act (ejecutamos la funcion)
+        //  Act 
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
     it("debería devolver 10,11,12 si el número es 8,9,10", () => {
 
-        //  Arrange (escenario)
+        //  Arrange 
         const numero = 10;
         const numeroEsperado = 12;
         
-        //  Act (ejecutamos la funcion)
+        //  Act 
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
     it("debería devolver el mismo número si es menor o igual que 7", () => {
 
-        //  Arrange (escenario)
+        //  Arrange
         const numero = 7;
         const numeroEsperado = 7;
 
-        //  Act (ejecutamos la funcion)
+        //  Act 
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
 
     it("debería devolver el mismo número si es menor o igual que 7", () => {
 
-        //  Arrange (escenario)
+        //  Arrange 
         const numero = 1;
         const numeroEsperado = 1;
 
-        //  Act (ejecutamos la funcion)
+        //  Act 
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
 
     it("debería devolver el mismo número si es menor o igual que 7", () => {
 
-        //  Arrange (escenario)
+        //  Arrange 
         const numero = 3;
         const numeroEsperado = 3;
 
-        //  Act (ejecutamos la funcion)
+        //  Act
         const resultado = calcularCarta(numero);
 
-        //  Assert (comprobamos el resultado)
+        //  Assert
         expect(resultado).toBe(numeroEsperado);
     });
 });
