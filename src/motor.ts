@@ -1,5 +1,4 @@
 
-
 export const numeroAleatorio = (): number => Math.floor(Math.random() * 10) + 1;
 
 export const calcularCarta = (numero: number):number =>{
@@ -19,7 +18,6 @@ export const asignarEvento = (id: string, evento: string, handler: EventListener
         console.error(`No se encontró el elemento con id ${id}`);
     }
 };
-
 
 export const dameUrlCarta = (carta: number): string => {
     const cartas: { [key: number]: string } = {

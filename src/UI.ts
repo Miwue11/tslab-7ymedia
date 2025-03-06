@@ -195,7 +195,6 @@ export const pedirCarta=():void=> {
 export const perder=()=>{
     ocultarQueHubieraPasado();
     deshabilitarBotones();
-    partida.gameOver = true;
     puntos();
     const mensaje = dameMensaje(partida.puntuacion);
     mensajeDiv(mensaje);
@@ -207,7 +206,6 @@ export const perder=()=>{
 export const ganar=()=>{
     ocultarQueHubieraPasado();
     deshabilitarBotones();
-    partida.gameOver = true;
     puntos();
     mensajeDiv("¡Enhorabuena! Has ganado");
     btnNueva();
