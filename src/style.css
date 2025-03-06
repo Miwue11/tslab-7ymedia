@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   background-image: url("https://img.freepik.com/vector-gratis/vector-fondo-decorativo-textura-acuarela-verde-suave_1055-18436.jpg?semt=ais_hybrid");
   background-size: cover;
-  font-family:"montserrat", sans-serif;
+  font-family: "montserrat", sans-serif;
   max-width: 100%;
   max-height: 50%;
   text-align: center;
@@ -23,11 +23,8 @@ img {
   border-radius: 10px;
 }
 
-
-
 button:active {
   background-color: #36bd04b5;
-
 }
 
 #resultadoOpcional {
@@ -38,7 +35,6 @@ button:active {
 
 #btnNueva:hover {
   background-color: #4ad3057a;
-
 }
 #mensaje {
   margin-top: 20px;
@@ -52,7 +48,7 @@ button:active {
   border-radius: 5px;
 }
 
-h1{
+h1 {
   color: #1d5203ce;
   border: 1px solid #36bd04b5;
   border-radius: 50px;
@@ -61,9 +57,8 @@ h1{
   line-height: 50px;
 }
 
-div{
+div {
   color: #1d5203ce;
-
 }
 
 button:hover {
@@ -79,14 +74,14 @@ button:hover {
   border: 1px solid #36bd04b5;
   border-radius: 50px;
   background-color: rgba(144, 165, 42, 0.111);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   transition: 0.3s;
   font-weight: bold;
   z-index: 0;
   color: #1d5203ce;
 }
 
-#btnVerQueHubieraPasado{
+#btnVerQueHubieraPasado {
   color: #1d5203ce;
 }
 
@@ -98,7 +93,7 @@ button {
   border: 1px solid #36bd04b5;
   border-radius: 50px;
   background-color: rgba(144, 165, 42, 0.111);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   transition: 0.3s;
   font-weight: bold;
   z-index: 0;
@@ -110,12 +105,11 @@ button:hover:enabled {
   background-color: rgba(144, 165, 42, 0.111);
 }
 
-
 button:disabled {
-  background-color: rgba(144, 165, 42, 0.111); 
-  color: #999;               
-  border: 2px solid #7CD96A; 
+  background-color: rgba(144, 165, 42, 0.111);
+  color: #999;
+  border: 2px solid #7cd96a;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: not-allowed;
-  opacity: 1; 
+  opacity: 1;
 }
