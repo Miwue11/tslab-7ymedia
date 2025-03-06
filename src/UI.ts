@@ -211,7 +211,8 @@ export const ganar = () => {
   ocultarQueHubieraPasado();
   deshabilitarBotones();
   puntos();
-  mensajeDiv("¡Enhorabuena! Has ganado");
+  const mensaje = dameMensaje(partida.puntuacion);
+  mensajeDiv(mensaje);
   btnNueva();
   opcional();
   dameUrlCarta(0);
