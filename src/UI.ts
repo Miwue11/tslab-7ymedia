@@ -175,9 +175,13 @@ export const habilitarBotones = (): void => {
   ponerBotonPlantar();
 };
 
-export const nuevaPartida = (): void => {
+const seteodePartida = () => {
   partida.puntuacion = 0;
   partida.gameOver = false;
+};
+
+export const nuevaPartida = (): void => {
+  seteodePartida();
   puntos();
   habilitarBotones();
   mostrarCarta(0);
@@ -196,12 +200,14 @@ export const pedirCarta = (): void => {
   puntos();
 };
 
+const mostrarMensaje = () => dameMensaje(partida.puntuacion);
+
 export const perder = () => {
   ocultarQueHubieraPasado();
   deshabilitarBotones();
   puntos();
-  const mensaje = dameMensaje(partida.puntuacion);
-  mensajeDiv(mensaje);
+  mostrarMensaje();
+  mensajeDiv(mostrarMensaje());
   btnNueva();
   opcional();
   dameUrlCarta(0);
@@ -211,8 +217,8 @@ export const ganar = () => {
   ocultarQueHubieraPasado();
   deshabilitarBotones();
   puntos();
-  const mensaje = dameMensaje(partida.puntuacion);
-  mensajeDiv(mensaje);
+  mostrarMensaje();
+  mensajeDiv(mostrarMensaje());
   btnNueva();
   opcional();
   dameUrlCarta(0);
@@ -266,8 +272,8 @@ export const plantar = (): void => {
   deshabilitarBotones();
   partida.gameOver = true;
   puntos();
-  const mensaje: string = dameMensaje(partida.puntuacion);
-  mensajeDiv(mensaje);
+  mostrarMensaje();
+  mensajeDiv(mostrarMensaje());
   btnNueva();
   opcional();
   queHubieraPasado();
