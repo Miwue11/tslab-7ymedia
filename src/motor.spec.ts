@@ -1,14 +1,14 @@
-import { ganarOrPerder,numeroAleatorio,calcularCarta } from "./motor";
+import {numeroAleatorio,calcularCarta, dameMensaje} from "./motor";
 import * as model from "./model";
 import { vi } from "vitest";
-import { dameMensaje, mensajeDiv } from "./UI";
+import { mensajeDiv,ganarOrPerder } from "./UI";
 
 describe("ganarOrPerder", () => {
     beforeEach(() => {
         vi.spyOn(model.partida, "gameOver", "get").mockReturnValue(false);
         document.body.innerHTML = "";
     });
-    
+
     afterEach(() => {
         vi.restoreAllMocks();
     });
